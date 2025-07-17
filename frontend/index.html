@@ -1,0 +1,21 @@
+<h2>Submit Assignment</h2>
+<form onsubmit="submitAssignment(event)">
+  <input placeholder="Assignment ID" id="aid" />
+  <textarea id="content" placeholder="Your answer..."></textarea>
+  <button>Submit</button>
+</form>
+<script>
+async function submitAssignment(e) {
+  e.preventDefault();
+  const res = await fetch(`http://localhost:8000/assignments/${aid.value}/submit`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "user_id": "2",
+      "role": "student"
+    },
+    body: JSON.stringify({ content: content.value })
+  });
+  alert(await res.text());
+}
+</script>

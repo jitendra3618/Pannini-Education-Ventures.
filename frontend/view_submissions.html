@@ -1,0 +1,15 @@
+<h2>Submissions for Assignment</h2>
+<input id="aid" placeholder="Assignment ID" />
+<button onclick="fetchSubmissions()">View</button>
+<ul id="result"></ul>
+<script>
+async function fetchSubmissions() {
+  const res = await fetch(`http://localhost:8000/assignments/${aid.value}/submissions`, {
+    headers: {
+      "role": "teacher"
+    }
+  });
+  const data = await res.json();
+  result.innerHTML = data.map(s => `<li>${s.content}</li>`).join("");
+}
+</script>

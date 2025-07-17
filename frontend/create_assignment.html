@@ -1,0 +1,26 @@
+<h2>Create Assignment</h2>
+<form onsubmit="createAssignment(event)">
+  <input id="title" placeholder="Title" /><br />
+  <textarea id="desc" placeholder="Description"></textarea><br />
+  <input id="due" placeholder="Due Date" /><br />
+  <button>Create</button>
+</form>
+<script>
+async function createAssignment(e) {
+  e.preventDefault();
+  await fetch("http://localhost:8000/assignments", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "user_id": "1",
+      "role": "teacher"
+    },
+    body: JSON.stringify({
+      title: title.value,
+      description: desc.value,
+      due_date: due.value
+    })
+  });
+  alert("Assignment created!");
+}
+</script>
