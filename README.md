@@ -3,6 +3,8 @@
 A simplified assignment tracking system for an EdTech platform that allows teachers to post assignments and students to submit them.
 
 ---
+## Screenshot
+<img width="1024" height="1024" alt="screenshot" src="https://github.com/user-attachments/assets/3e7cab4c-feb7-46ba-86ba-b64c624bea7d" />
 
 ## ✅ Features Implemented
 
